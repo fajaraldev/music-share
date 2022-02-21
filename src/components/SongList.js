@@ -28,18 +28,17 @@ function SongList() {
         alignItems: 'center',
         marginTop: 50
       }}>
-
         <CircularProgress/>
       </div>
     );
   }
 
   return (
-    <div>
+    <>
       {Array.from({ length: 10 }, () => song).map((song, i) => (
         <Song key={i} song={song}/>
       ))}
-    </div>
+    </>
   )
 }
 

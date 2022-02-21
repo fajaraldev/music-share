@@ -17,7 +17,7 @@ function Header() {
         <Toolbar>
           <HeadsetRounded/>
           <Typography className={classes.title} variant="h6" component="h1">
-            Music Share Aplication
+            Music Share
           </Typography>
         </Toolbar>
       </AppBar>
