@@ -3,19 +3,21 @@ import {
   Typography,
   Avatar,
   IconButton,
-  makeStyles
+  makeStyles,
+  useMediaQuery
 } from '@material-ui/core';
 import { Delete } from '@material-ui/icons';
 
 function QueuedSongList() {
+  const greaterThanMd = useMediaQuery(theme => theme.breakpoints.up('md'));
+
   const song = {
     title: "You've Got a Friend in Me",
     artist: "Rendy Newman",
     thumbnail: "https://i.ytimg.com/vi/0hG-2tQtdlE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDEqEFedS9-wM2ZOwo60Vg4c7OdDw"
   }
 
-
-  return (
+  return greaterThanMd && (
     <div style={{
       margin: '10px 0'
     }}>
