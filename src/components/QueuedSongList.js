@@ -21,7 +21,7 @@ function QueuedSongList() {
     <div style={{
       margin: '10px 0'
     }}>
-      <Typography color='text-secondary' variant='button'>
+      <Typography color='textSecondary' variant='button'>
         QUEUE (5)
       </Typography>
 
