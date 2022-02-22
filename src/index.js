@@ -5,12 +5,16 @@ import {
   ThemeProvider,
   // CssBaseline
 } from '@material-ui/core';
+import { ApolloProvider } from '@apollo/react-hooks';
 import theme from './theme';
+import client from './graphql/client';
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    {/* <CssBaseline/> */}
-    <App />
-  </ThemeProvider>,
+  <ApolloProvider client={client}>
+    <ThemeProvider theme={theme}>
+      {/* <CssBaseline/> */}
+      <App />
+    </ThemeProvider>
+  </ApolloProvider>,
   document.getElementById('root')
 );

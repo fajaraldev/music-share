@@ -10,15 +10,11 @@ import {
   makeStyles
 } from '@material-ui/core';
 import {Save, PlayArrow} from '@material-ui/icons'
+import { useQuery } from '@apollo/react-hooks';
+import GET_SONGS from '../graphql/queries';
 
 function SongList() {
-  let loading = false;
-
-  const song = {
-    title: "You've Got a Friend in Me",
-    artist: "Rendy Newman",
-    thumbnail: "https://i.ytimg.com/vi/0hG-2tQtdlE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDEqEFedS9-wM2ZOwo60Vg4c7OdDw"
-  }
+  const { data, loading, error } = useQuery(GET_SONGS);
 
   if (loading) {
     return (
@@ -33,10 +29,12 @@ function SongList() {
     );
   }
 
+  if (error) return <div>Error fetching songs</div>;
+
   return (
     <>
-      {Array.from({ length: 10 }, () => song).map((song, i) => (
-        <Song key={i} song={song}/>
+      {data.songs.map(song => (
+        <Song key={song.id} song={song}/>
       ))}
     </>
   )
