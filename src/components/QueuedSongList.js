@@ -11,7 +11,7 @@ import { useMutation } from '@apollo/react-hooks';
 import { ADD_OR_REMOVE_FROM_QUEUE } from '../graphql/mutation';
 
 function QueuedSongList({queue}) {
-  console.log({ queue });
+  // console.log({ queue });
   const greaterThanMd = useMediaQuery(theme => theme.breakpoints.up('md'));
 
   return greaterThanMd && (
