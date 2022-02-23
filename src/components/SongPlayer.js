@@ -53,6 +53,7 @@ function SongPlayer() {
   const reactPlayerRef = React.useRef();
   const { state, dispatch } = React.useContext(SongContext);
   const [played, setPlayed] = React.useState(0);
+  const [playedSeconds, setPlayedSecond] = React.useState(0);
   const [seeking, setSeeking] = React.useState(false);
   const classes = useStyles();
 
@@ -71,6 +72,10 @@ function SongPlayer() {
   function handleSeekMouseUp() {
     setSeeking(false);
     reactPlayerRef.current.seekTo(played);
+  }
+
+  function formatDuration(seconds){
+    return new Date(seconds * 1000).toISOString().substr(11, 8);
   }
 
   return (
@@ -96,7 +101,7 @@ function SongPlayer() {
               <SkipNext/>
             </IconButton>
             <Typography variant="subtitle1" component="p" color="textSecondary">
-              00:01:30
+              {formatDuration(playedSeconds)}
             </Typography>
           </div>
           <Slider
@@ -115,6 +120,7 @@ function SongPlayer() {
           onProgress={({ played, playedSeconds }) => {
             if (!seeking) {
               setPlayed(played);
+              setPlayedSecond(playedSeconds);
             }
           }}
           url={state.song.url}
