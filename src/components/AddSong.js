@@ -14,9 +14,7 @@ import { useMutation } from '@apollo/react-hooks';
 import ReactPlayer from 'react-player';
 import SoundcloudPlayer from 'react-player/lib/players/SoundCloud';
 import YoutubePlayer from 'react-player/lib/players/YouTube';
-import ADD_SONG from '../graphql/mutation'
-
-// https://www.youtube.com/watch?v=nkAe90WEPCQ
+import { ADD_SONG } from '../graphql/mutation';
 
 const useStyles = makeStyles(theme => ({
   container: {

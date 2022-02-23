@@ -1,15 +1,15 @@
 import { gql } from 'apollo-boost';
 
-const GET_SONGS = gql`
-query getSongs {
-  songs(order_by: {created_at: desc}) {
-    artist
-    duration
+const GET_QUEUED_SONGS = gql`
+query getQueuedSong {
+  queue @client {
     id
-    thumbnail
+    artist
     title
+    thumbnail
+    duration
     url
   }
 }`;
 
-export default GET_SONGS;
+export default GET_QUEUED_SONGS;
