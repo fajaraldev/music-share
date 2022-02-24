@@ -21,7 +21,7 @@ const authToken = '*******';
 
 const client = new ApolloClient({
   link: new WebSocketLink({
-    uri: 'ws://yourEndPoint....',
+    uri: 'wss://yourEndPoint....',
     options: {
       reconnect: true,
       connectionParams: {
