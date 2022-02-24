@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Music Share Aplication
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Screenshot
+<p align="center">
+<img src="https://user-images.githubusercontent.com/71541409/155464363-69d50a2e-3713-44fd-9498-b3aac3281859.png" width="80%" />
+</p>
 
-In the project directory, you can run:
+## Setup GraphQl in Hasura
 
-### `npm start`
+1. Create Heroku Database
 
-Runs the app in the development mode.\
+2. Create new table and configure the columns
+<img src="https://user-images.githubusercontent.com/71541409/151175141-867e5f1b-9ea3-45d2-9b6a-d3f12248f9d1.png" width="90%"/>
+3. Copy your Endpoint and authToken in Request Header, paste to file `graphql/client.js`
+<img src="https://user-images.githubusercontent.com/71541409/155466276-10e70195-f68a-408e-aa1f-cd968166c057.png" width="90%"/>
+
+````
+const authToken = '*******';
+
+const client = new ApolloClient({
+  link: new WebSocketLink({
+    uri: 'ws://yourEndPoint....',
+    options: {
+      reconnect: true,
+      connectionParams: {
+        headers: {'x-hasura-admin-secret': `${authToken}`},
+      }
+    }
+  }),
+````
+# Running the App
+
+1. Ensure you have `npm` installed.
+
+Follow the instructions for your platform [here](https://github.com/npm/npm).
+
+2. Clone/fork this repo
+
+````
+git clone https://github.com/fajaraldev/music-share.git
+````
+3. Go to folder project
+
+````
+cd music-share
+````
+3. Install modules
+
+````
+npm install
+````
+4. Run the program
+
+````
+npm start
+````
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Contributing
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you have any idea to make it more interesting, feel free to send a PR, or create an issue for a feature request.
