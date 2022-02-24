@@ -8,12 +8,12 @@ import songReducer from './reducer';
 
 export const SongContext = React.createContext({
   song: {
-    id: 'a91a1336-b6ed-4645-a182-bed50a3c428d',
-    title: 'Bukan Sa Lagi',
-    artist: 'Anak Kompleks',
-    thumbnail: 'http://img.youtube.com/vi/nkAe90WEPCQ/0.jpg',
-    duration: 255,
-    url: 'https://www.youtube.com/watch?v=nkAe90WEPCQ'
+    id: '61ec4933-ed23-4a40-873d-2d93fa6a6354',
+    title: "You've Got a Friend in Me",
+    artist: 'Rendy Newman',
+    thumbnail: 'https://i.ytimg.com/vi/0hG-2tQtdlE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIh',
+    duration: 250,
+    url: 'https://www.youtube.com/watch?v=0hG-2tQtdlE'
   },
   isPlaying: false
 });
